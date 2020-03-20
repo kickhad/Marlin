@@ -1507,6 +1507,9 @@
    #endif
  #endif
 
+//For the mount we use:
+ #define NOZZLE_TO_PROBE_OFFSET { -40, -10, 0 } //perform Z offset afterwards.
+
 // Certain types of probes need to stay away from edges
 //#if ENABLED(ABL_BLTOUCH)
 //  #define MIN_PROBE_EDGE 3
@@ -1775,8 +1778,8 @@
     #define Z_MAX_POS 300
     #define ClipClearance 15
   #elif ENABLED(MachineEnder5Plus)
-    #define X_BED_SIZE 360
-    #define Y_BED_SIZE 360
+    #define X_BED_SIZE 330
+    #define Y_BED_SIZE 340
     #define Z_MAX_POS 400
     #define ClipClearance 25
   #elif ENABLED(MachineCR20)

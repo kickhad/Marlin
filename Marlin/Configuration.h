@@ -1508,7 +1508,7 @@
  #endif
 
 //For the mount we use:
- #define NOZZLE_TO_PROBE_OFFSET { -40, -10, 0 } //perform Z offset afterwards.
+ #define NOZZLE_TO_PROBE_OFFSET { -3, -50, 0 } //perform Z offset afterwards.
 
 // Certain types of probes need to stay away from edges
 //#if ENABLED(ABL_BLTOUCH)

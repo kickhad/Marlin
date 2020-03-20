@@ -1571,7 +1571,7 @@
       #define NOZZLE_TO_PROBE_OFFSET { 63, 5, 0 }
     #endif
   #else
-    #define NOZZLE_TO_PROBE_OFFSET { 32, 5, 0 }
+    #define NOZZLE_TO_PROBE_OFFSET { -3, -50, -3.15 }
   #endif
 #endif
 
@@ -1806,14 +1806,16 @@
   #elif ENABLED(MachineEnder5Plus)
     #define Y_BED_SIZE 360
     #define Z_MAX_POS 400
+    #define Y_MAX_POS 360
     #if ENABLED(E3DHemera)
-      #define X_BED_SIZE 352
-      #define X_MAX_POS 352
+      #define X_BED_SIZE 330
+      #define X_MAX_POS 330
+      #define Y_MAX_POS 340
     #else
       #define X_BED_SIZE 360
       #define X_MAX_POS 360
     #endif
-    #define Y_MAX_POS 360
+    
     #define ClipClearance 25
   #elif ENABLED(MachineCR20)
     #define X_BED_SIZE 230

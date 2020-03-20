@@ -6,7 +6,7 @@
 
 // Standard Atmega2560 machines (No bootloader required)
 
-//#define MachineEnder5Plus
+#define MachineEnder5Plus
 //#define MachineEnder4
 //#define MachineCR20 //Buzzer doesnt work
 //#define MachineCR20Pro
@@ -14,7 +14,7 @@
 //#define MachineCR10SV2
 //#define MachineCR10SPro // Graphics LCD Requires soldering R64 and R66
 //#define MachineCR10SProV2 // Second Gen 10S Pro with BLTouch wired to Z Max
-//#define MachineCRX
+//#define Ma`chineCRX
 //#define MachineCR10Max
 //#define MachineS4
 //#define MachineS5
@@ -43,8 +43,8 @@
    E3D Mounting assumes Groovemount
    Creality Mounting assumes bolt-on kit
 */
-//#define HotendStock
-//#define HotendE3D
+// #define HotendStock
+#define HotendE3D
 //#define HotendMosquito
 
 //Enable this if you have an all metal hotend capable of 300c
@@ -62,7 +62,7 @@
  //#define EZRstruder
  //#define Bondtech
  //#define E3DTitan
- //#define E3DHemera
+ #define E3DHemera
 
  //#define DirectDrive // Any direct drive extruder, reduces filament change lengths
 
@@ -2352,6 +2352,8 @@
 // Specify a park position as { X, Y, Z }
 #if(ENABLED(MachineEnder2))
 #define NOZZLE_PARK_POINT { (0), (0), 10 }
+#elif(ENABLED(MachineEnder5Plus)&&ENABLED(E3DHemera))
+  #define NOZZLE_PARK_POINT { 0, 20,(10)}
 #else
 #define NOZZLE_PARK_POINT { (50), (10), 10 }
 #endif

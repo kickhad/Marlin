@@ -83,7 +83,7 @@
 //#define ABL_NCSW //Creality ABL or Any NC Sensor
 //#define ABL_BLTOUCH
 //#define ABL_TOUCH_MI // Uncomment ABL_TOUCH_MI to use Touch-MI sensor by hotends.fr
-
+//#define ALT_MOUNT
 //#define CREALITY_ABL_MOUNT //Using creality ABL mount
 //#define E3D_DUALFAN_MOUNT // Using HD Modular mount as above with 2 5015 blowers and sensor on the right
 //#define E3D_PROBEMOUNT_LEFT // Default is probe mounted to the right for E3D. Set this to invert.
@@ -1544,7 +1544,11 @@
 #elif ANY(MachineCR10SPro, MachineCR10Max) && ENABLED(HotendStock)
   #define NOZZLE_TO_PROBE_OFFSET { -27, 0, 0 }
 #elif (ANY(ABL_BLTOUCH, ABL_EZABL,ABL_NCSW) && ENABLED(E3DHemera))
+  #if (ENABLED(ALT_MOUNT))
+    #define NOZZLE_TO_PROBE_OFFSET { -40, -10, 0 }
+  #else
     #define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }
+  #endif
 #elif ENABLED(MachineCR10SV2)
   #if ENABLED(ABL_BLTOUCH)
     #define NOZZLE_TO_PROBE_OFFSET { 45, 7, 0 }

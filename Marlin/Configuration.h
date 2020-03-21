@@ -6,7 +6,7 @@
 
 // Standard Atmega2560 machines (No bootloader required)
 
-#define MachineEnder5Plus
+// #define MachineEnder5Plus
 //#define MachineEnder4
 //#define MachineCR20 //Buzzer doesnt work
 //#define MachineCR20Pro
@@ -44,7 +44,7 @@
    Creality Mounting assumes bolt-on kit
 */
 // #define HotendStock
-#define HotendE3D
+// #define HotendE3D
 //#define HotendMosquito
 
 //Enable this if you have an all metal hotend capable of 300c
@@ -62,7 +62,7 @@
  //#define EZRstruder
  //#define Bondtech
  //#define E3DTitan
- #define E3DHemera
+//  #define E3DHemera
 
  //#define DirectDrive // Any direct drive extruder, reduces filament change lengths
 
@@ -81,9 +81,9 @@
 */
 //#define ABL_EZABL // TH3D EZABL or Any NO Sensor
 //#define ABL_NCSW //Creality ABL or Any NC Sensor
-//#define ABL_BLTOUCH
+// #define ABL_BLTOUCH
 //#define ABL_TOUCH_MI // Uncomment ABL_TOUCH_MI to use Touch-MI sensor by hotends.fr
-
+// #define ALT_MOUNT
 //#define CREALITY_ABL_MOUNT //Using creality ABL mount
 //#define E3D_DUALFAN_MOUNT // Using HD Modular mount as above with 2 5015 blowers and sensor on the right
 //#define E3D_PROBEMOUNT_LEFT // Default is probe mounted to the right for E3D. Set this to invert.
@@ -1539,12 +1539,16 @@
    #if ENABLED(ABL_BLTOUCH)
      #define NOZZLE_TO_PROBE_OFFSET { -22, -45, 0 }
    #elif ANY(ABL_EZABL, ABL_NCSW)
-     #define NOZZLE_TO_PROBE_OFFSET { -44, -10, 0 }
+     #define NOZZLE_TO_PROBE_OFFSET 
    #endif
 #elif ANY(MachineCR10SPro, MachineCR10Max) && ENABLED(HotendStock)
   #define NOZZLE_TO_PROBE_OFFSET { -27, 0, 0 }
 #elif (ANY(ABL_BLTOUCH, ABL_EZABL,ABL_NCSW) && ENABLED(E3DHemera))
+  #if (ENABLED(ALT_MOUNT))
+    #define NOZZLE_TO_PROBE_OFFSET { -3, -50, -3.15 }
+  #else
     #define NOZZLE_TO_PROBE_OFFSET { -40, 0, 0 }
+  #endif
 #elif ENABLED(MachineCR10SV2)
   #if ENABLED(ABL_BLTOUCH)
     #define NOZZLE_TO_PROBE_OFFSET { 45, 7, 0 }
